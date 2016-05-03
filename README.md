@@ -1,23 +1,22 @@
-Language cartodb
-==============
+Language Zoho
+=============
 
-Language Pack for sending messages using the [cartodb API](http://docs.cartodb.com/cartodb-platform/sql-api/).
+Language Pack for sending messages using the Zoho API.
 
 Documentation
 -------------
 
 ```js
-sql(
+addRow(
   function(state) {
     return (
-      `INSERT INTO untitled_table (name, the_geom) VALUES ('`
-      + dataValue("form.first_name")(state)
-      + `', ST_SetSRID(ST_Point(`
-        + dataValue("lat")(state) + `, `
-        + dataValue("long")(state) + `),4326))`
+      `Name=` + dataValue("form.first_name")(state) +
+      `&Date of Birth=` + dataValue("dob")(state) +
+      `&Country=USA&Salary=10000`
     )
   }
 )
+
 ```
 
 Development

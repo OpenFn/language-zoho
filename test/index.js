@@ -54,7 +54,7 @@ describe("event", () => {
       configuration: {
         username: "hello",
         password: "there",
-        apiUrl: 'https://play.cartodb.org/demo'
+        apiUrl: 'https://play.zoho.org/demo'
       }
     };
 

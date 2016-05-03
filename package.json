@@ -1,7 +1,7 @@
 {
-  "name": "language-cartodb",
+  "name": "language-zoho",
   "version": "0.0.1",
-  "description": "cartodb Language Pack for OpenFn",
+  "description": "zoho Language Pack for OpenFn",
   "main": "lib/index.js",
   "scripts": {
     "build": "make",
