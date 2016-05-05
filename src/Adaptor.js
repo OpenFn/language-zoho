@@ -40,22 +40,19 @@ export function addRow(db, table, rowData) {
 
   return state => {
 
-    // const body = rowData(state);
-    const body = "SUBJECT=LetUsDoOpenFn"
+    const action = "ADDROW";
+    const body = expandReferences(rowData)(state);
 
     const { account, authToken, apiVersion } = state.configuration;
 
-    const url = `https://reportsapi.zoho.com/api/`.concat(account, '/', db, '/',
-                  table, `?ZOHO_ACTION=ADDROW&ZOHO_OUTPUT_FORMAT=JSON
-                  &ZOHO_ERROR_FORMAT=JSON&authtoken=`, authToken,
-                  `&ZOHO_API_VERSION=`, apiVersion)
+    const url = `https://reportsapi.zoho.com/api/`.concat(account, '/', db, '/', table)
 
     console.log("POST URL:");
     console.log(url)
     console.log("POST Parameters:");
     console.log(body)
 
-    return post({ url, body })
+    return post({ url, body, authToken, apiVersion, action })
     .then((result) => {
       console.log("Success:", result);
       return { ...state, references: [ result, ...state.references ] }
