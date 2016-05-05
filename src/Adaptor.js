@@ -36,24 +36,26 @@ export function execute(...operations) {
  * @param {object} sqlQuery - Payload data for the message
  * @returns {Operation}
  */
-export function addRow(db, table, sqlQuery) {
+export function addRow(db, table, rowData) {
 
   return state => {
 
-    const body = sqlQuery(state);
+    // const body = rowData(state);
+    const body = "SUBJECT=LetUsDoOpenFn"
 
     const { account, authToken, apiVersion } = state.configuration;
 
-    const url = 'https://reportsapi.zoho.com/api/'.concat(account, '/', db, '/',
-                  table, '?ZOHO_ACTION=ADDROW&ZOHO_OUTPUT_FORMAT=JSON
-                  &ZOHO_ERROR_FORMAT=JSON&authtoken=', authToken,
-                  '&ZOHO_API_VERSION=', apiVersion)
+    const url = `https://reportsapi.zoho.com/api/`.concat(account, '/', db, '/',
+                  table, `?ZOHO_ACTION=ADDROW&ZOHO_OUTPUT_FORMAT=JSON
+                  &ZOHO_ERROR_FORMAT=JSON&authtoken=`, authToken,
+                  `&ZOHO_API_VERSION=`, apiVersion)
 
+    console.log("POST URL:");
     console.log(url)
-    console.log("Executing SQL query:");
+    console.log("POST Parameters:");
     console.log(body)
 
-    return post({ authToken, body, account, url })
+    return post({ url, body })
     .then((result) => {
       console.log("Success:", result);
       return { ...state, references: [ result, ...state.references ] }

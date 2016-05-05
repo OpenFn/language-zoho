@@ -1,10 +1,9 @@
 import request from 'superagent'
 
-export function post({ apiKey, body, url }) {
+export function post({ url, body }) {
   return new Promise((resolve, reject) => {
-    request.get(url)
-    .query({ q: body })
-    .query({ api_key: apiKey })
+    request.post(url)
+    .send(body)
     .end((error, res) => {
       if (!!error || !res.ok) {
         reject( error )
