@@ -64,6 +64,6 @@ export function addRow(db, table, rowData) {
 }
 
 export {
-  field, fields, sourceValue,
+  field, fields, sourceValue, each,
   merge, dataPath, dataValue, lastReferenceValue
 } from 'language-common';
