@@ -6,6 +6,16 @@ Language Pack for sending messages using the Zoho API.
 Documentation
 -------------
 
+### Sample configuration
+
+```json
+{
+  "account": "yourzohoaccount", 
+  "authToken": "secretauthtoken", 
+  "apiVersion": "v2" 
+}
+```
+
 ### addRow
 To add a row to the "Customers" table in the "testing_openfn" database, use the following `addRow` function.
 ```js
