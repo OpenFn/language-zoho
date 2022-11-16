@@ -1,4 +1,9 @@
-Language Zoho
+# _⚠️ MOVED TO [OpenFn/adaptors](https://github.com/OpenFn/adaptors)! ⚠️_
+
+**N.B.: New versions are available at:
+https://github.com/OpenFn/adaptors/tree/main/packages/zoho**
+
+# Language Zoho (Archived)
 =============
 
 Language Pack for sending messages using the Zoho API.
